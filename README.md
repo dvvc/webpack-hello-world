@@ -111,3 +111,15 @@ still need to tell webpack to do the same for the CSS.
 8. Install `purgecss-webpack-plugin` and `glob` `npm i -D purgecss-webpack-plugin glob`
 9. Add purgecss-webpack-plugin and a Tailwind processor to `webpack.config.js`
 10. Add a `deploy` script in `package.json`
+
+## Chapter 7: Generate Source Maps
+
+If you run `deploy` and load your page, you should see the network requests are
+quite small, probably less than 2KB per file. However, one side effect of this
+is when you try to debug your code, you'll just see gibberish. The solution for
+this is to add source maps, which are files that map the minimized code into the
+original source.
+
+## Steps
+1. Add the `devtool: source-map` entry to `webpack.config.js` and `sourceMap: true` to `uglifyjs-webpack-plugin`
+2. Modify the `optimize-css-assets-webpack-plugin` to generate annotations
