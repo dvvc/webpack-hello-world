@@ -1,13 +1,13 @@
 'use strict';
 
-const path = require('path');
+import path from 'path';
 
-const express = require('express');
-const morgan = require('morgan');
+import express from 'express';
+import morgan from 'morgan';
 
 let app = express();
 
-app .use(morgan('dev'));
+app.use(morgan('dev'));
 
 app.use('/', express.static(path.join(__dirname, 'public')));
 

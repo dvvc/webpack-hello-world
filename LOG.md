@@ -139,3 +139,21 @@ to switch from vanilla JS to Typescript.
 5. Add `ts-loader` and `.ts` extensions to `webpack.config.js`
 6. Install `ts-node` to run the server `npm i -D ts-node`
 7. Add a `server` script to `package.json` to run the server
+
+## Chapter 9: Add Code Linting and Prettifying
+
+After configuring all the pipelines to generate all our code, it is time to make
+sure the code itself looks great. There are two tools that help us with this:
+code prettifyers and code linters. The first type just format source files so
+that they follow a set of conventions such as using single quotes instead of
+double quotes. The second type of tools is more complex and performs static
+analysis on the code to ensure there are no potential bugs, for example when we
+forget to declare a member access type in Typescript.
+
+## Steps
+1. Install `prettier` globally `npm i -g prettier`
+2. Create a `.prettierrc` file
+3. Configure your editor to use prettier, format on save, etc.
+4. Install `tslint`, `tslint-loader` and its configurations `npm i -D tslint tslint-loader tslint-config-prettier tslint-config-standard`
+5. Create a `tslint.json` configuration file
+6. Modify `webpack.config.js` to process `.ts` files with `tslint`
