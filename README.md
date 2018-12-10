@@ -81,3 +81,33 @@ one, Tailwind, which generates utility classes.
 4. Update `webpack.config.js` to run postcss before css-loader
 5. Update `styles.css` to include Tailwind directives
 6. Update `client/index.html` to use Tailwind classes
+
+## Chapter 6: Optimize Bundle Sizes
+
+If you run `npm run build` and look at the `dist` directory contents, you'll see
+that the `bundle.js` file is huge! This is because Tailwind generates many
+classes for styling, and the CSS has comments that we don't need. There's three
+problems with this: First, the browser loads the styles and the scripts in one
+call, while it could load both in parallel. Second, the size contributed by
+Tailwind is not justified, because we are not even using most of the
+styles. Finally, our JS code contains a lot o comments and long variable names
+that, while useful for development, add precious space to our bundle. In this
+chapter we will solve these problems by separating the CSS from the JS code,
+then purging the unused CSS classes, and finally uglifying the JS code.
+
+Fortunately, we don't need to do anything to minify the JS code. Just run
+`NODE_ENV=production npm run build` and look at the `bundle.js`. It should be
+much smaller. Now variables have short names and comments are gone! However, we
+still need to tell webpack to do the same for the CSS.
+
+## Steps
+1. Install `mini-css-extract-plugin` `npm i -D mini-css-extract-plugin`
+2. Uninstall `style-loader`
+3. Modify `webpack.config.js` to use mini-css-extract-plugin
+4. Install `optimize-css-assets-webpack-plugin`
+5. Modify `webpack.config.js` to use optimize-css-assets-webpack-plugin
+6. Since we have overriden the minimizers, we need to add a JS one.
+7. Install `npm i -D uglifyjs-webpack-plugin` and add it to `webpack.config.js`
+8. Install `purgecss-webpack-plugin` and `glob` `npm i -D purgecss-webpack-plugin glob`
+9. Add purgecss-webpack-plugin and a Tailwind processor to `webpack.config.js`
+10. Add a `deploy` script in `package.json`

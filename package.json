@@ -8,6 +8,7 @@
     "copy:assets": "npm run clean:assets && mkdir server/public && npm run build && cp -r dist/* server/public",
     "build": "webpack",
     "dev": "webpack-dev-server",
+    "deploy": "NODE_ENV=production npm run copy:assets",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -20,10 +21,13 @@
   "devDependencies": {
     "css-loader": "^2.0.0",
     "html-webpack-plugin": "^3.2.0",
+    "mini-css-extract-plugin": "^0.5.0",
+    "optimize-css-assets-webpack-plugin": "^5.0.1",
     "postcss-cli": "^6.0.1",
     "postcss-loader": "^3.0.0",
-    "style-loader": "^0.23.1",
+    "purgecss-webpack-plugin": "^1.4.0",
     "tailwindcss": "^0.7.2",
+    "uglifyjs-webpack-plugin": "^2.0.1",
     "webpack": "^4.27.1",
     "webpack-cli": "^3.1.2",
     "webpack-dev-server": "^3.1.10"
