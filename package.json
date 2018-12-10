@@ -4,8 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "clean:assets": "rm -rf server/public",
-    "copy:assets": "npm run clean:assets && mkdir server/public && cp -r client/* server/public",
+    "clean:assets": "rm -rf server/public dist",
+    "copy:assets": "npm run clean:assets && mkdir server/public && npm run build && cp -r client/styles.css client/index.html dist/* server/public",
+    "build": "webpack",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -14,5 +15,9 @@
   "dependencies": {
     "express": "^4.16.4",
     "morgan": "^1.9.1"
+  },
+  "devDependencies": {
+    "webpack": "^4.27.1",
+    "webpack-cli": "^3.1.2"
   }
 }

@@ -32,3 +32,19 @@ the Node / JS stack for now.
 5. Create a `.gitignore` file and add `node_modules` and `server/public`
 6. Create a `server/public` directory
 7. Add scripts `clean:assets` and `copy:assets` to package.json
+
+
+## Chapter 3: Bundling the Client Files
+
+Now that we have a functional server and client application, we will bundle the
+client code into a single file. This will allow us to perform transformations on
+the code (such as compiling it from Typescript, minify it, etc) and bundle it
+into a single file.
+
+### Steps
+1. Install webpack `npm i -D webpack webpack-cli`
+2. Create a `webpack.config.js` file
+3. Add a `build` step to `package.json`
+4. Modify the `copy:assets` step to copy the bundle
+5. Modify the `index.html` to use the bundle instead of `index.js`
+6. Modify `.gitignore` not track `dist`
