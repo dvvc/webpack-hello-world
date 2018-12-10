@@ -123,3 +123,18 @@ original source.
 ## Steps
 1. Add the `devtool: source-map` entry to `webpack.config.js` and `sourceMap: true` to `uglifyjs-webpack-plugin`
 2. Modify the `optimize-css-assets-webpack-plugin` to generate annotations
+
+## Chapter 8: Switch to Typescript
+
+We now have a full build pipeline that can process our JS and CSS source code
+and bundle and optimize it for a production-grade application. The next step is
+to switch from vanilla JS to Typescript.
+
+## Steps
+1. Install `typescript` and `ts-loader` `npm i -D typescript ts-loader`
+2. Install the `express` types `npm i -D @types/express`
+3. Rename all `.js` files to `.ts`
+4. Create `tsconfig.json`
+5. Add `ts-loader` and `.ts` extensions to `webpack.config.js`
+6. Install `ts-node` to run the server `npm i -D ts-node`
+7. Add a `server` script to `package.json` to run the server
