@@ -20,6 +20,7 @@ class TailwindExtractor {
 module.exports = {
   entry: './client/index.js',
   mode: MODE,
+  devtool: 'source-map',
   output: {
     filename: 'bundle.js',
     path: path.join(__dirname, 'dist'),
@@ -63,8 +64,16 @@ module.exports = {
       new UglifyJsPlugin({
         cache: true,
         parallel: true,
+        sourceMap: true,
       }),
-      new OptimizeCSSAssetsPlugin({}),
+      new OptimizeCSSAssetsPlugin({
+        cssProcessorOptions: {
+          map: {
+            inline: false,
+            annotation: true,
+          },
+        },
+      }),
     ],
   },
 };
