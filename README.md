@@ -48,3 +48,19 @@ into a single file.
 4. Modify the `copy:assets` step to copy the bundle
 5. Modify the `index.html` to use the bundle instead of `index.js`
 6. Modify `.gitignore` not track `dist`
+
+## Chapter 4: Bundling the Styles, Generating HTML and enabling Hot Reload
+
+Right now we needed to explicitly add the script name into the HTML. This is not
+great since we may have multiple bundles, or change the bundle names. Also, we
+are just processing the Javascript code, and not the style. In this chapter we
+will add bundling code for CSS and also generate the HTML automatically.
+
+## Steps
+1. Install `html-webpack-plugin`, `style-loader` and `css-loader` `npm i -D html-webpack-plugin style-loader css-loader`
+2. Modify `webpack.config.js` to use those plugins
+3. Modify `client/index.js` to include the `styles.css` file. Also add some logging.
+4. Modify `client/index.html` to not include anything
+5. Modify `copy:assets` in `package.json` to only copy the contents of `dist`
+6. Install `webpack-dev-server`
+7. Add a `dev` script in `package.json` to run hot reload
