@@ -65,3 +65,20 @@ will add bundling code for CSS and also generate the HTML automatically.
 5. Modify `copy:assets` in `package.json` to only copy the contents of `dist`
 6. Install `webpack-dev-server`
 7. Add a `dev` script in `package.json` to run hot reload
+
+## Chapter 5: Use Tailwind
+
+Now that our application has all functionality and the build pipeline performs
+all the steps to generate our bundle and copy it to the server's public
+directory. We can switch to more powerful tools that will help us for
+larger-scale applications. First, we need a better CSS solution. There are many
+options such as SCSS or Less. In this guide I will use a slightly more complex
+one, Tailwind, which generates utility classes.
+
+## Steps
+1. Install Tailwind and its dependencies, PostCSS `npm i -D tailwindcss postcss-cli postcss-loader`
+2. Initialize the tailwind configuration `./node_modules/.bin/tailwind init tailwind.config.js`
+3. Create a `postcss.config.js` file
+4. Update `webpack.config.js` to run postcss before css-loader
+5. Update `styles.css` to include Tailwind directives
+6. Update `client/index.html` to use Tailwind classes
