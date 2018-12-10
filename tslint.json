@@ -1,0 +1,24 @@
+{
+  "extends": ["tslint:recommended", "tslint-config-standard", "tslint-config-prettier"],
+  "rulesDirectory": [],
+  "rules": {
+    "max-line-length": {
+      "options": [100]
+    },
+    "new-parens": true,
+    "no-arg": true,
+    "no-bitwise": true,
+    "no-conditional-assignment": true,
+    "no-consecutive-blank-lines": false,
+    "ordered-imports": false,
+    "prefer-const": false,
+    "no-console": false,
+    "object-literal-sort-keys": false,
+    "interface-name": false
+  },
+  "jsRules": {
+    "max-line-length": {
+      "options": [100]
+    }
+  }
+}

@@ -36,6 +36,17 @@ module.exports = {
         exclude: /node_modules/,
       },
       {
+        test: /\.ts$/,
+        enforce: 'pre',
+        exclude: /node_modules/,
+        use: {
+          loader: 'tslint-loader',
+          options: {
+            typeCheck: true,
+          },
+        },
+      },
+      {
         test: /\.css$/,
         use: [
           MiniCssExtractPlugin.loader,
@@ -45,7 +56,8 @@ module.exports = {
               importLoaders: 1,
             },
           },
-          'postcss-loader'],
+          'postcss-loader',
+        ],
       },
     ],
   },
@@ -65,7 +77,7 @@ module.exports = {
           extensions: ['html', 'js', 'ts', 'css'],
         },
       ],
-    })
+    }),
   ],
   optimization: {
     minimizer: [
