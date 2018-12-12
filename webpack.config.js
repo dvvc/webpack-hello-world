@@ -18,7 +18,7 @@ class TailwindExtractor {
 }
 
 module.exports = {
-  entry: './client/index.ts',
+  entry: './client/index.tsx',
   mode: MODE,
   devtool: 'source-map',
   output: {
@@ -26,17 +26,17 @@ module.exports = {
     path: path.join(__dirname, 'dist'),
   },
   resolve: {
-    extensions: ['.js', '.ts'],
+    extensions: ['.js', '.ts', '.tsx'],
   },
   module: {
     rules: [
       {
-        test: /\.ts$/,
+        test: /\.tsx?$/,
         use: 'ts-loader',
         exclude: /node_modules/,
       },
       {
-        test: /\.ts$/,
+        test: /\.tsx?$/,
         enforce: 'pre',
         exclude: /node_modules/,
         use: {
@@ -74,7 +74,7 @@ module.exports = {
       extractors: [
         {
           extractor: TailwindExtractor,
-          extensions: ['html', 'js', 'ts', 'css'],
+          extensions: ['html', 'js', 'ts', 'css', 'tsx'],
         },
       ],
     }),

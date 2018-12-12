@@ -156,3 +156,17 @@ forget to declare a member access type in Typescript.
 4. Install `tslint`, `tslint-loader` and its configurations `npm i -D tslint tslint-loader tslint-config-prettier tslint-config-standard`
 5. Create a `tslint.json` configuration file
 6. Modify `webpack.config.js` to process `.ts` files with `tslint`
+
+## Chapter 10: Add React
+
+Having configured Typescript and the rest of the pipeline, we can now move our
+client-side code to React. We'll use everything we have until now, plus add a
+new loader for .ts and .tsx files that compiles JSX + Typescript into Javascript.
+
+## Steps
+1. Install `react`, `react-dom` and their types `npm i -S react react-dom` `npm i -D @types/react @types/react-dom`
+2. Modify `webpack.config.js` to add support for `.tsx` files
+3. Modify `tsconfig.json` to enable `jsx` support
+4. Modify `index.html` and `client/index.ts` to mount a react component
+5. Rename `client/index.ts` to `client/index.tsx`
+6. Create a `client/component/HelloWorld.tsx` file

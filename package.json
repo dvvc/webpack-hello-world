@@ -5,8 +5,7 @@
   "main": "index.js",
   "scripts": {
     "clean:assets": "rm -rf server/public dist",
-    "copy:assets":
-      "npm run clean:assets && mkdir server/public && npm run build && cp -r dist/* server/public",
+    "copy:assets": "npm run clean:assets && mkdir server/public && npm run build && cp -r dist/* server/public",
     "build": "webpack",
     "dev": "webpack-dev-server",
     "deploy": "NODE_ENV=production npm run copy:assets",
@@ -19,11 +18,15 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.16.4",
-    "morgan": "^1.9.1"
+    "morgan": "^1.9.1",
+    "react": "^16.6.3",
+    "react-dom": "^16.6.3"
   },
   "devDependencies": {
     "@types/express": "^4.16.0",
     "@types/morgan": "^1.7.35",
+    "@types/react": "^16.7.13",
+    "@types/react-dom": "^16.0.11",
     "css-loader": "^2.0.0",
     "html-webpack-plugin": "^3.2.0",
     "mini-css-extract-plugin": "^0.5.0",
